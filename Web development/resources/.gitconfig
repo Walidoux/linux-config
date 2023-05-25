@@ -1,0 +1,17 @@
+[user]
+	name = Walidoux
+	email = ma.walidkorchi@icloud.com
+	signingkey = 8BA19866
+	
+[commit]
+	gpgsign = true
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[tag]
+	gpgSign = true
+[gpg]
+	program = /usr/bin/gpg2

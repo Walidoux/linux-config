@@ -1,0 +1,20 @@
+[Desktop Entry]
+X-AppInstall-Package=gnome-terminal-y
+X-AppInstall-Section=main
+
+Name=Terminoux
+Comment=Terminal with my own zsh's config
+TryExec=zsh
+Exec=gnome-terminal --class=zsh -e zsh
+Terminal=false
+Icon=Terminoux
+Type=Application
+StartupNotify=true
+X-GNOME-SingleWindow=true
+OnlyShowIn=GNOME;Unity;
+Actions=New
+StartupWMClass=zsh
+
+[Desktop Action New]
+Name=New Terminal
+Exec=gnome-terminal --class=zsh -e zsh
