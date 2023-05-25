@@ -1,17 +1,11 @@
 #!/bin/bash
 
-RED='\033[1;31m'
-ORANGE='\033[0;33m'
-GREEN='\033[0;32m'
-NC='\033[0m'
+source ../common.sh
 
 if [ "$EUID" -ne 0 ]
-  then echo -e "$RED⛔ Hey Walid, where's your sudo friend."
+  then echo -e $MESSAGE_NO_PERMISSION
   exit 1
 fi
-
-GIT_NAME="Walidoux"
-GIT_EMAIL="ma.walidkorchi@icloud.com"
 
 # if you want to remove a GPG Key: [! sudo !] gpg --delete-secret-keys <key>
 

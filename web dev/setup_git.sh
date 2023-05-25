@@ -1,19 +1,13 @@
 #!/bin/env bash
 
-# Usage: sudo ./initialize-config.sh
+source ../common.sh
 
-if [[ "$(id --user)" -ne 0 ]]; then
-  echo -e "\e[1;31m⛔ No permission. What the hell you think you're doing ?\e[0m"
+if [[ "$(id --user)" -ne 0 ]]
+  then echo -e $MESSAGE_NO_PERMISSION
   exit 1
 fi
 
-GIT_NAME="Walidoux"
-GIT_EMAIL="ma.walidkorchi@icloud.com"
-
 GIT_CONFIG_FILE="/home/$SUDO_USER/.gitconfig"
-
-git config --global user.name $GIT_NAME
-git config --global user.email $GIT_EMAIL
 
 gpg --list-keys
 
@@ -34,7 +28,7 @@ if [[ -f $GIT_CONFIG_FILE ]]; then
 else
   touch $GIT_CONFIG_FILE && chmod a+w $GIT_CONFIG_FILE
   echo "[user]
-                name = $GIT_NAME
+                name = $GIT_USERNAME
                 email = $GIT_EMAIL
                 signingKey = $GPG_KEY
 	[commit]

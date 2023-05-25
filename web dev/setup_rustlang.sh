@@ -1,19 +1,19 @@
 #!/bin/env bash
 
-# Usage: sudo ./initialize-config.sh
+source ../common.sh
 
-if [[ "$(id --user)" -ne 0 ]]; then
-  echo -e "\e[1;31m⛔ No permission. What the hell you think you're doing ?\e[0m"
+if [[ "$(id --user)" -ne 0 ]]
+  then echo -e $MESSAGE_NO_PERMISSION
   exit 1
 fi
 
+debug $ORANGE "🦀 Installing rust-lang..."
+
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
-# For tauri app desktop app development
+# For Tauri development
 apt install --yes libwebkit2gtk-4.0-dev \
     build-essential \
-    curl \
-    wget \
     libssl-dev \
     libgtk-3-dev \
     libayatana-appindicator3-dev \
